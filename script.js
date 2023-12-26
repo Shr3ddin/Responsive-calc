@@ -26,6 +26,8 @@ function handleOperators() {
 
 	if (mathSign.textContent !== '') {
 		calculate();
+	} else if (currentNum.textContent.includes('-') && this.textContent === '-') {
+		return;
 	}
 
 	prevNum.textContent = currentNum.textContent;
