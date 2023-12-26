@@ -51,10 +51,10 @@ body {
 }
 
 .calc-history-mobile h2::after {
-    top: 6.5%;
-    right: 5px;
     position: absolute;
     content: '';
+    top: 6.5%;
+    right: 5px;
     width: 40%;
     height: 2px;
     background-color: var(--white);
@@ -83,6 +83,7 @@ body {
 	/* From https://css.glass */
 	background-color: rgba(99, 95, 95, 0.43);
 	border: none;
+    word-break: break-all;
 	color: var(--white);
 }
 
@@ -107,8 +108,13 @@ body {
 
 .prevNum,
 .mathSign {
+    margin: .6rem;
 	font-size: 1rem;
 	color: var(--gray);
+}
+
+.prevNum {
+    margin-left: 1.2rem;
 }
 
 .panel {
