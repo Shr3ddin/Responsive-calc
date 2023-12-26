@@ -31,47 +31,6 @@ body {
 	align-items: center;
 }
 
-.calc-history-mobile {
-    display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 0%;
-	height: 100%;
-	background-color: rgb(53, 50, 51);
-	z-index: 2;
-	transition: width 0.6s;
-}
-
-.calc-history-mobile h2 {
-	padding: 0.5rem;
-	font-size: 1rem;
-	color: var(--white);
-    text-align: right
-}
-
-.calc-history-mobile h2::after {
-    position: absolute;
-    content: '';
-    top: 6.5%;
-    right: 5px;
-    width: 40%;
-    height: 2px;
-    background-color: var(--white);
-}
-
-.mobile-close-btn {
-	display: none;
-}
-
-.mobile-close-btn.active {
-	display: block;
-}
-
-.calc-history-mobile.active {
-	width: 40%;
-}
-
 .display {
 	position: relative;
 	display: flex;
@@ -83,21 +42,30 @@ body {
 	/* From https://css.glass */
 	background-color: rgba(99, 95, 95, 0.43);
 	border: none;
-    word-break: break-all;
+	word-break: break-all;
 	color: var(--white);
 }
 
-.mobile-hist-btn,
-.mobile-close-btn {
+.open-history-mobile,
+.clear-history {
 	position: absolute;
-	top: 0;
-	left: 0;
 	padding: 0.5rem;
-	font-size: 1rem;
-	background: none;
 	border: none;
+	background: none;
+	font-size: 1.2rem;
 	color: var(--white);
 	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.open-history-mobile:hover,
+.clear-history:hover {
+	color: var(--gray);
+}
+
+.open-history-mobile {
+	top: 0;
+	left: 0;
 }
 
 .currentNum {
@@ -108,13 +76,13 @@ body {
 
 .prevNum,
 .mathSign {
-    margin: .6rem;
+	margin: 0.6rem;
 	font-size: 1rem;
 	color: var(--gray);
 }
 
 .prevNum {
-    margin-left: 1.2rem;
+	margin-left: 1.2rem;
 }
 
 .panel {
@@ -166,7 +134,7 @@ body {
 		width: 32rem;
 	}
 
-	.mobile-hist-btn {
+	.open-history-mobile {
 		display: none;
 	}
 
@@ -175,6 +143,12 @@ body {
 		position: relative;
 		height: 28rem;
 		width: 8rem;
+	}
+
+	.clear-history {
+		display: none;
+		bottom: 0;
+		right: 0;
 	}
 
 	.calc-history h2 {
@@ -188,7 +162,7 @@ body {
 		left: 5px;
 		position: absolute;
 		content: '';
-		width: 80%;
+		width: 60%;
 		height: 2px;
 		background-color: var(--white);
 	}
