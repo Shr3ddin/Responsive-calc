@@ -62,7 +62,7 @@ function calculate() {
 			break;
 	}
 
-	// addtoHistory();
+	addtoHistory();
 	currentNum.textContent = result;
 	prevNum.textContent = '';
 	mathSign.textContent = '';
@@ -74,12 +74,12 @@ function clearOperation() {
 	currentNum.textContent = '';
 }
 
-// const addtoHistory = () => {
-// 	const historyItem = document.createElement('p');
-// 	historyItem.classList.add('.hist-item');
-// 	historyItem.textContent = `${currentNum.textContent} ${mathSign.textContent} ${prevNum.textContent} = ${result}`;
-// 	calcHistory.append(historyItem);
-// };
+const addtoHistory = () => {
+	const historyItem = document.createElement('p');
+	historyItem.classList.add('.hist-item');
+	historyItem.textContent = `${currentNum.textContent} ${mathSign.textContent} ${prevNum.textContent} = ${result}`;
+	calcHistory.append(historyItem);
+};
 
 numBtns.forEach(btn => btn.addEventListener('click', handleNums));
 operatorBtns.forEach(btn => btn.addEventListener('click', handleOperators));

@@ -116,9 +116,10 @@ body {
 	display: none;
 }
 
-.hist-item {
+.calc-history p {
 	padding: 0.5rem;
 	color: var(--white);
+	border-bottom: 1px solid rgba(95, 92, 92, 0.3);
 }
 
 /* RESPONSIVE */
@@ -147,7 +148,7 @@ body {
 		display: block;
 		position: relative;
 		height: 28rem;
-		width: 8rem;
+		width: 10rem;
 	}
 
 	.clear-history {
@@ -157,8 +158,9 @@ body {
 	}
 
 	.calc-history h2 {
-		padding: 0 0.5rem;
+		padding: 0 0.5rem 0.5rem 0.5rem;
 		font-size: 1rem;
+		text-align: start;
 		color: var(--white);
 	}
 
