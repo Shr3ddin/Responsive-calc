@@ -116,6 +116,11 @@ body {
 	display: none;
 }
 
+.hist-item {
+	padding: 0.5rem;
+	color: var(--white);
+}
+
 /* RESPONSIVE */
 @media (min-width: 320px) {
 	.calculator {
