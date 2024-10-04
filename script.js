@@ -19,28 +19,21 @@ function handleNums() {
 }
 
 function handleOperators() {
-	// Jeśli currentNum jest puste, ale użytkownik chce wprowadzić minus (aby dodać liczbę ujemną), pozwól na to.
 	if (currentNum.textContent === '' && this.textContent === '-') {
 		currentNum.textContent = '-';
 		return;
-	}
-
-	// Zablokuj możliwość wpisania kolejnego operatora, jeśli currentNum zawiera tylko znak minus.
-	if (currentNum.textContent === '-' && this.textContent !== '') {
-		return; // Blokujemy operator dopóki nie zostanie wprowadzona liczba po znaku minus.
-	}
-
-	// Jeśli currentNum jest puste (ale nie zaczyna od minusa), zignoruj wprowadzenie operatora.
-	if (currentNum.textContent === '') {
+	} else if (currentNum.textContent === '' && this.textContent !== '-') {
 		return;
 	}
 
-	// Jeśli istnieje już operator, wykonaj obliczenie przed dodaniem nowego operatora.
+	if (currentNum.textContent === '-' && this.textContent !== '') {
+		return;
+	}
+
 	if (mathSign.textContent !== '') {
 		calculate();
 	}
 
-	// Przenieś currentNum do prevNum, a operator do mathSign
 	prevNum.textContent = currentNum.textContent;
 	mathSign.textContent = this.textContent;
 	currentNum.textContent = '';
@@ -86,7 +79,8 @@ function clearOperation() {
 const addtoHistory = () => {
 	const historyItem = document.createElement('p');
 	historyItem.classList.add('.hist-item');
-	historyItem.textContent = `${currentNum.textContent} ${mathSign.textContent} ${prevNum.textContent} = ${result}`;
+	historyItem.textContent = `${prevNum.textContent} ${mathSign.textContent} ${currentNum.textContent} = ${result}`;
+
 	calcHistory.append(historyItem);
 };
 
