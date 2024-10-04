@@ -19,19 +19,28 @@ function handleNums() {
 }
 
 function handleOperators() {
+	// Jeśli currentNum jest puste, ale użytkownik chce wprowadzić minus (aby dodać liczbę ujemną), pozwól na to.
 	if (currentNum.textContent === '' && this.textContent === '-') {
 		currentNum.textContent = '-';
 		return;
-	} else if (currentNum.textContent === '') {
+	}
+
+	// Zablokuj możliwość wpisania kolejnego operatora, jeśli currentNum zawiera tylko znak minus.
+	if (currentNum.textContent === '-' && this.textContent !== '') {
+		return; // Blokujemy operator dopóki nie zostanie wprowadzona liczba po znaku minus.
+	}
+
+	// Jeśli currentNum jest puste (ale nie zaczyna od minusa), zignoruj wprowadzenie operatora.
+	if (currentNum.textContent === '') {
 		return;
 	}
 
+	// Jeśli istnieje już operator, wykonaj obliczenie przed dodaniem nowego operatora.
 	if (mathSign.textContent !== '') {
 		calculate();
-	} else if (currentNum.textContent.includes('-') && this.textContent === '-') {
-		return;
 	}
 
+	// Przenieś currentNum do prevNum, a operator do mathSign
 	prevNum.textContent = currentNum.textContent;
 	mathSign.textContent = this.textContent;
 	currentNum.textContent = '';
